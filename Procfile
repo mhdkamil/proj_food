@@ -1,0 +1,1 @@
+web: gunicorn eatvegg.wsgi --log-file -
