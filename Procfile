@@ -1,1 +1,1 @@
-web: gunicorn eatvegg.wsgi --log-file -
+web: gunicorn EATVEGG.wsgi --log-file -
