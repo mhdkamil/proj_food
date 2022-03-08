@@ -25,7 +25,7 @@ SECRET_KEY = 'p-*99@dv^o%lbbpcsw3+^y#&zgkntc&qq%h^hkhdz(zhc70!pe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['food-projj.com']
+ALLOWED_HOSTS = ['*']
 
 
 import dj_database_url
