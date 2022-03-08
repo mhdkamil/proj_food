@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<!--
+Template Name: Chillaid
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>eat vegg</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+<style>
+  .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 36px;
+  font-size: 26px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+<slyle>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: black;
+}
+
+form.example button {
+  float: right;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</slyle>
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+
+ 
+
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="bgded overlay" style="background-image:url({% static 'hm/images/demo/backgrounds/bg.jpg' %});">
+   <br><br> <div class="dropdown">
+    <button class="dropbtn">Filter</button>
+    <div class="dropdown-content">
+      <a href="/">All products</a>
+      {% for i in ct %}
+    <a href={{i.get_url}}>{{i.name}}</a>
+  {% endfor %}
+    </div>
+  </div>
+  
+
+
+
+  <form class="example" action="{% url 'search' %}" method="get" style="margin:auto;max-width:300px">
+    <input type="text" placeholder="Search.." name="q">
+    <button type="submit"><i class="fas fa-search"></i></button>
+  </form>
+
+
+
+  <div id="pageintro" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading" style="color: yellow;">Good Quality Vegitables and Fruits</h3>
+      <p>Vegetarian diets offer a number of nutritional benefits, including lower levels of saturated fat, cholesterol and animal protein as well as higher levels of carbohydrates, dietary fiber, magnesium, potassium, folate and antioxidants such as vitamins C and E and phytochemicals.</p>
+      <!-- <footer><a class="btn" href="#">Tristique vehicula</a></footer> -->
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+</div>
+
+
+
+
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <!-- main body -->
+    <!-- ################################################################################################ -->
+
+    <!-- ################################################################################################ -->
+    {% for i in pg.object_list %}
+    <section class="group shout">
+      <figure class="one_half first"><a href="{{i.get_url}}"><img src="{{i.img.url}}" alt="" style='height: 350; width: 350px;'>
+        <figcaption class="heading"> {{i.name}}</a>
+        <p>{{i.desc|truncatewords:17}}<br><br><br><br>
+      </figcaption>
+      </figure>
+      {% endfor %}
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+
+    
+    </section>
+    <center>
+
+
+      {% for i in pg.paginator.page_range %}
+
+      <a href="?page={{i}}" class="btn btn-light btn-sm {% if pg.number == p %} active {% endif %}">page{{i}}</a>
+
+
+      {% endfor %}
+
+
+    </center>
+    </main>
+    </div>
+</body>
+</html>
+{% endblock %}
