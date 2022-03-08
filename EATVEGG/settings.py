@@ -9,17 +9,6 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-STATIC_URL = '/static/'
-# Extra lookup directories for collectstatic to find static files
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
-
-#  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 import os
 
@@ -36,7 +25,7 @@ SECRET_KEY = 'p-*99@dv^o%lbbpcsw3+^y#&zgkntc&qq%h^hkhdz(zhc70!pe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['food-projj.com']
 
 
 import dj_database_url
